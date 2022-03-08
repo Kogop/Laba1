@@ -98,8 +98,23 @@ int main() {
 		File3 << endl;
 	}
 	File3.close();
-	
-	
+
+	FillVector(v);
+
+	ofstream File4("Vector_1.txt");
+	for (int i = 0; i < n; i++)
+	{
+		File4 << v[i]<< endl;
+	}
+	File4.close();
+
+	Matrix_Peremnoj_na_vector(A, v);
+	ofstream File5("Vector_2.txt");
+	for (int i = 0; i < n; i++)
+	{
+		File5 << d[i] << endl;
+	}
+	File5.close();
 
 	return 1;
 }
