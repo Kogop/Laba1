@@ -10,12 +10,12 @@ const int n = 5, m = 5;
 double A[n][m], B[m][n], v[n], d[n], C[n][n];
 
 
-void FillMatrix(double A[n][m]) {
+void FillMatrix(double A1[n][m]) {
 
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < m; j++) {
-			A[i][j] = rand();
+			A1[i][j] = rand();
 
 		}
 
@@ -23,23 +23,36 @@ void FillMatrix(double A[n][m]) {
 
 
 }
+void FillVector(double v1[n]) {
 
-void Matrix_Peremnoj(double A[n][m], double B[m][n]) {
+	
+		for (int j = 0; j < m; j++) {
+			v1[j] = rand();
+
+		}
+
+	
+
+
+}
+
+void Matrix_Peremnoj(double A1[n][m], double B1[m][n]) {
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
 			C[i][j] = 0;
-			for (int k = 0; k < n; k++)
-				C[i][j] += A[i][k] * B[k][j];
+			for (int k = 0; k < n; k++) {
+				C[i][j] += A1[i][k] * B1[k][j];
+			}
 		}
 	}
 }
-void Matrix_Peremnoj_na_vector(double A[n][m], double v[n]) {
+void Matrix_Peremnoj_na_vector(double A1[n][m], double v1[n]) {
 
 	for (int i = 0; i < n; i++) {
 		d[i] = 0;
 		for (int j = 0; j < m; j++) {
-			d[i] += v[i] * A[i][j];
+			d[i] += v1[i] * A1[i][j];
 		}
 	}
 }
@@ -48,6 +61,8 @@ void Matrix_Peremnoj_na_vector(double A[n][m], double v[n]) {
 int main() {
 
 	FillMatrix(A);
+	FillMatrix(B);
+	FillVector(v);
 
 	ofstream File1("Matrix_1.txt");
 	for (int i = 0; i < n; i++)
@@ -58,9 +73,33 @@ int main() {
 		}
 		File1 << endl;
 	}
-
-	
 	File1.close();
+
+	ofstream File2("Matrix_2.txt");
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++) {
+			File2 << B[i][j] << " ";
+
+		}
+		File2 << endl;
+	}
+	File2.close();
+
+	Matrix_Peremnoj(A, B);
+
+	ofstream File3("Matrix_3.txt");
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++) {
+			File3 << C[i][j] << " ";
+
+		}
+		File3 << endl;
+	}
+	File3.close();
+	
+	
 
 	return 1;
 }
