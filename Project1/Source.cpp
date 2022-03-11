@@ -15,24 +15,20 @@ void FillMatrix(double A1[n][m]) {
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < m; j++) {
-			A1[i][j] = rand();
+			A1[i][j] = rand()%100;
 
 		}
 
 	}
 
-
 }
+
 void FillVector(double v1[n]) {
 
-	
-		for (int j = 0; j < m; j++) {
-			v1[j] = rand();
+	for (int j = 0; j < m; j++) {
+			v1[j] = rand() % 100;
 
-		}
-
-	
-
+	}
 
 }
 
@@ -99,7 +95,7 @@ int main() {
 	}
 	File3.close();
 
-	FillVector(v);
+
 
 	ofstream File4("Vector_1.txt");
 	for (int i = 0; i < n; i++)
