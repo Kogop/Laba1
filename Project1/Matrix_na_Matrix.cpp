@@ -84,7 +84,7 @@ int main() {
 
 	Matrix_Peremnoj(A, B);
 
-	ofstream File3("Matrix_3.txt");
+	ofstream File3("Matrix_Otvet.txt");
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < m; j++) {
@@ -105,7 +105,7 @@ int main() {
 	File4.close();
 
 	Matrix_Peremnoj_na_vector(A, v);
-	ofstream File5("Vector_2.txt");
+	ofstream File5("Vector_Otvet.txt");
 	for (int i = 0; i < n; i++)
 	{
 		File5 << d[i] << endl;
