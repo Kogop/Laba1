@@ -7,18 +7,18 @@ using namespace std;
 const int n = 15, m = 10;
 double A[n][m], B[m][n], v[n], d[n], C[n][n];
 
-void FillMatrix() {
+void FillMatrix(double(&AA)[n][m], double(&BB)[m][n]) {
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < m; j++) {
-			A[i][j] = rand() % 100 / 2.5;
+			AA[i][j] = rand() % 100 / 2.5;
 		}
 	}
 
 	for (int i = 0; i < m; i++)
 	{
 		for (int j = 0; j < n; j++) {
-			B[i][j] = rand() % 100 / 2.5;
+			BB[i][j] = rand() % 100 / 2.5;
 		}
 	}
 }
@@ -48,7 +48,7 @@ void Matrix_Peremnoj_na_vector(double A1[n][m], double v1[n]) {
 }
 
 int main() {
-	FillMatrix();
+	FillMatrix(A, B);
 	FillVector(v);
 
 	ofstream File1("Matrix_1.txt");
